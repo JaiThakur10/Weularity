@@ -36,101 +36,99 @@ const App = () => {
       alert(data.message);
     } catch (error) {
       console.error("Error:", error);
-      alert("An error occurred. Please try again.");
+      alert("errrrrrrro. Please try again.");
     }
   };
 
   return (
-    <>
-      <div className="App">
-        <h1>User Information Form</h1>
-        <form onSubmit={handleSubmit}>
+    <div className="App">
+      <h1>User Information Form</h1>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Name:
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <label>
+          Email:
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <label>
+          Gender:
           <label>
-            Name:
             <input
-              type="text"
-              name="name"
-              value={formData.name}
+              type="radio"
+              name="gender"
+              value="Male"
               onChange={handleChange}
               required
-            />
+            />{" "}
+            Male
           </label>
           <label>
-            Email:
             <input
-              type="email"
-              name="email"
-              value={formData.email}
+              type="radio"
+              name="gender"
+              value="Female"
               onChange={handleChange}
               required
-            />
+            />{" "}
+            Female
           </label>
+        </label>
+        <label>
+          Hobbies:
           <label>
-            Gender:
-            <label>
-              <input
-                type="radio"
-                name="gender"
-                value="Male"
-                onChange={handleChange}
-                required
-              />{" "}
-              Male
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="gender"
-                value="Female"
-                onChange={handleChange}
-                required
-              />{" "}
-              Female
-            </label>
-          </label>
-          <label>
-            Hobbies:
-            <label>
-              <input
-                type="checkbox"
-                name="hobbies"
-                value="Reading"
-                onChange={handleChange}
-              />{" "}
-              Reading
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                name="hobbies"
-                value="Traveling"
-                onChange={handleChange}
-              />{" "}
-              Traveling
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                name="hobbies"
-                value="Gaming"
-                onChange={handleChange}
-              />{" "}
-              Gaming
-            </label>
-          </label>
-          <label>
-            Message:
-            <textarea
-              name="message"
-              value={formData.message}
+            <input
+              type="checkbox"
+              name="hobbies"
+              value="Reading"
               onChange={handleChange}
-              required
-            />
+            />{" "}
+            Reading
           </label>
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-    </>
+          <label>
+            <input
+              type="checkbox"
+              name="hobbies"
+              value="Traveling"
+              onChange={handleChange}
+            />{" "}
+            Traveling
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="hobbies"
+              value="Gaming"
+              onChange={handleChange}
+            />{" "}
+            Gaming
+          </label>
+        </label>
+        <label>
+          Message:
+          <textarea
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   );
 };
 
