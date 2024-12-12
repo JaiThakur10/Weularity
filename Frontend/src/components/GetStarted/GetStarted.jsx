@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 
-const FormComponent = () => {
+const GetStarted = () => {
   // State to store form data
   const [formData, setFormData] = useState({
     name: "",
@@ -463,4 +463,4 @@ const FormComponent = () => {
   );
 };
 
-export default FormComponent;
+export default GetStarted;
