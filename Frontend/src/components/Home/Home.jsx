@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { Button } from "../ui/button";
 import AboutUs from "../AboutUs/AboutUs";
 import Services from "../Services/Services";
@@ -10,9 +11,10 @@ import Footer from "../Footer/Footer";
 
 export default function Home() {
   return (
-    <>
+    <div className="font-sans scroll-smooth">
       <div className=" h-[630px] w-full flex items-center ">
         {/* left div */}
+
         <div className="  flex-col   h-[400px]  w-1/2">
           <div className="  text-center py-3  h-[30%] w-[70%] ml-24 text-black text-4xl">
             Crafting Stunning Websites & Digital Experiences
@@ -28,7 +30,7 @@ export default function Home() {
         </div>
 
         {/* right div */}
-        <div className=" bg-blue-400 h-[400px] w-1/2">img</div>
+        <div className="  h-[400px] w-1/2"></div>
       </div>
 
       {/* aboutus */}
@@ -48,6 +50,6 @@ export default function Home() {
 
       {/* footer */}
       <Footer />
-    </>
+    </div>
   );
 }
