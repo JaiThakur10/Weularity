@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
 import AboutUs from "../AboutUs/AboutUs";
 import Services from "../Services/Services";
+import Portfolio from "../Portfolio/Portfolio";
+import Testimonial from "../Testimonial/Testimonial";
+import Contact from "../Contact/Contact";
+import Footer from "../Footer/Footer";
 
 export default function Home() {
   return (
@@ -32,6 +36,18 @@ export default function Home() {
 
       {/* Services */}
       <Services />
+
+      {/* portfolio */}
+      <Portfolio />
+
+      {/* testimonial */}
+      <Testimonial />
+
+      {/* Contact */}
+      <Contact />
+
+      {/* footer */}
+      <Footer />
     </>
   );
 }
