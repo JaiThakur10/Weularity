@@ -2,9 +2,9 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="bg-gray-800 text-white text-center py-8 px-6">
+    <footer className="bg-black text-white text-center py-8 px-6">
       <div className="max-w-4xl mx-auto">
-        <h3 className="text-lg font-semibold">[Your Agency Name]</h3>
+        <h3 className="text-lg font-semibold">Weularity</h3>
         <p className="text-gray-400 mt-2">
           Building stunning websites and driving digital success.
         </p>
@@ -20,8 +20,7 @@ function Footer() {
           </a>
         </div>
         <p className="text-gray-500 mt-6">
-          &copy; {new Date().getFullYear()} [Your Agency Name]. All rights
-          reserved.
+          &copy; {new Date().getFullYear()} Weularity. All rights reserved.
         </p>
       </div>
     </footer>
