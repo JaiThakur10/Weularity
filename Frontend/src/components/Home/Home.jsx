@@ -8,15 +8,14 @@ import Portfolio from "../Portfolio/Portfolio";
 import Testimonial from "../Testimonial/Testimonial";
 import Contact from "../Contact/Contact";
 import Footer from "../Footer/Footer";
+import WhyChooseUs from "../WhyChooseUs/WhyChooseUs";
 
 export default function Home() {
   return (
     <div className="font-sans scroll-smooth px-8 bg-black ">
       {/* hero */}
-
-      <div className="h-[630px] w-full flex items-center relative overflow-hidden bg-black">
+      <div className="h-[630px] w-full flex flex-col md:flex-row items-center relative overflow-hidden bg-black">
         {/* Background Decorative Elements */}
-        {/* Layered Radial Gradient */}
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-[120%] h-[120%] bg-gradient-radial from-indigo-500/20 via-purple-500/10 to-transparent blur-3xl"></div>
           <div className="absolute bottom-10 right-10 w-[80%] h-[80%] bg-gradient-radial from-blue-500/10 via-transparent to-transparent blur-3xl"></div>
@@ -46,21 +45,21 @@ export default function Home() {
 
         {/* Left Section */}
         <motion.div
-          className="flex flex-col h-[400px] w-1/2 relative z-10"
+          className="flex flex-col h-auto md:h-[400px] w-full md:w-1/2 px-6 md:px-12 relative z-10 text-center md:text-left"
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          <motion.div
-            className="text-center py-3 h-[30%] w-[70%] ml-24 text-white text-5xl font-extrabold drop-shadow-lg"
+          <motion.h1
+            className="text-3xl md:text-5xl  md:text-center text-white font-extrabold drop-shadow-lg py-3"
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.8 }}
           >
             Crafting Stunning Websites & Digital Experiences
-          </motion.div>
-          <motion.div
-            className="w-[95%] px-4 ml-4 text-white text-lg mt-14 leading-relaxed"
+          </motion.h1>
+          <motion.p
+            className="text-sm md:text-lg md:ml-4 text-white mt-6 leading-relaxed"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 1 }}
@@ -68,20 +67,24 @@ export default function Home() {
             We design, build, and grow websites that captivate your audience and
             drive results. From sleek designs to powerful functionality, we
             deliver tailor-made solutions for your business.
-          </motion.div>
+          </motion.p>
           <motion.div
-            className="w-full flex items-center justify-center mt-8"
+            className="w-full flex items-center justify-center md:justify-center mt-8"
             whileHover={{ scale: 1.1 }}
           >
-            <button className="bg-white text-purple-600 font-semibold py-3 px-8 rounded-lg shadow-xl hover:bg-gray-100 transition-all duration-300">
+            <motion.button
+              className="bg-purple-600 hover:bg-purple-700 text-white py-3 px-8 rounded-lg shadow-lg"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3 }}
+            >
               Get Started
-            </button>
+            </motion.button>
           </motion.div>
         </motion.div>
 
         {/* Right Section */}
         <motion.div
-          className="h-[400px] w-1/2 flex items-center justify-center relative z-10"
+          className="h-auto md:h-[400px] w-full md:w-1/2 flex items-center justify-center px-6 relative z-10"
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
@@ -89,7 +92,7 @@ export default function Home() {
           <img
             src="./img/hero10.png"
             alt="Hero Section Graphic"
-            className="rounded-lg shadow-2xl mb-8 transform hover:scale-110 transition-transform duration-500"
+            className="rounded-lg shadow-2xl mb-8 transform hover:scale-110 transition-transform duration-500 max-w-full h-auto"
           />
         </motion.div>
       </div>
@@ -105,6 +108,9 @@ export default function Home() {
 
       {/* testimonial */}
       <Testimonial />
+
+      {/* whychooseus */}
+      <WhyChooseUs />
 
       {/* Contact */}
       <Contact />

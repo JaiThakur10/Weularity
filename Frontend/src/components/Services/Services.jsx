@@ -1,140 +1,179 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  MonitorPlay,
-  Target,
-  Settings,
-  Brush,
-  Code,
-  Rocket,
-} from "lucide-react";
 
 export default function Services() {
+  const sections = [
+    {
+      id: 1,
+      heading: "Web Design",
+      description:
+        "We create captivating and high-converting websites tailored to your business goals.",
+      image: "./img/webdes.jpg",
+      related: ["Responsive Design", "Custom Themes", "E-commerce Platforms"],
+    },
+    {
+      id: 2,
+      heading: "UI/UX Design",
+      description:
+        "Optimize your website to drive traffic, improve visibility, and increase conversions.",
+      image: "./img/seo.jpg",
+      related: ["Keyword Research", "On-Page SEO", "Backlink Strategies"],
+    },
+    {
+      id: 3,
+      heading: "Digital Market",
+      description:
+        "Strategic campaigns that maximize reach and engagement for your brand.",
+      image: "./img/design.jpg",
+      related: ["Social Media Ads", "PPC Campaigns", "Content Marketing"],
+    },
+  ];
+
   return (
-    <div className="min-h-screen flex flex-col items-center relative">
-      {/* Background Gradient */}
-      <motion.div
-        className="absolute inset-0 z-0 bg-black animate-gradient"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2 }}
-      />
-
-      {/* Header Section */}
-      <motion.div
-        className="relative z-10 w-full h-[270px] flex flex-col items-center justify-center text-center"
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <h1 className="text-white text-[4.5rem] font-extrabold uppercase">
-          Our Services
-        </h1>
-        <p className="text-lg text-white max-w-[700px] mt-4">
-          Dive into our expertise in user experience optimization, digital
-          strategy, and cutting-edge technology.
-        </p>
-        <div className="w-12 h-[4px] bg-black mt-4" />
-      </motion.div>
-
-      {/* Services Container */}
-      <div className="relative  z-10 h-[850px] w-full grid grid-cols-3 gap-8 px-12 py-12">
-        {[
-          {
-            id: 1,
-            title: "Web Design",
-            description:
-              "From corporate sites to e-commerce platforms, we create stunning websites that captivate and convert.",
-            icon: MonitorPlay,
-          },
-          {
-            id: 2,
-            title: "SEO",
-            description:
-              "We optimize your website to rank higher, driving more organic traffic and attracting qualified leads.",
-            icon: Target,
-          },
-          {
-            id: 3,
-            title: "UX/UI Design",
-            description:
-              "From wireframing to prototyping, we focus on user-centric design to elevate your digital presence.",
-            icon: Settings,
-          },
-          {
-            id: 4,
-            title: "Graphic Design",
-            description:
-              "We bring your brand to life with visually stunning and creative graphic designs tailored to your audience.",
-            icon: Brush,
-          },
-          {
-            id: 5,
-            title: "Custom Development",
-            description:
-              "Our expert developers create custom solutions to meet your unique business needs and challenges.",
-            icon: Code,
-          },
-          {
-            id: 6,
-            title: "Digital Marketing",
-            description:
-              "Expand your reach with targeted marketing strategies, from social media campaigns to PPC ads.",
-            icon: Rocket,
-          },
-        ].map((service, index) => (
-          <motion.div
-            key={service.id}
-            className="relative bg-white w-[400px] h-[300px] rounded-2xl shadow-lg border-2 border-black flex flex-col items-center justify-start p-6 overflow-hidden transition-transform duration-300"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{
-              scale: 1.05,
-              rotate: 1,
-            }}
-            transition={{ delay: index * 0.2, duration: 0.8 }}
+    <div className="min-h-screen  text-white">
+      {sections.map((section, index) => (
+        <div
+          key={section.id}
+          className={`flex flex-col lg:flex-row items-center gap-12 py-16 px-6 lg:px-24 ${
+            index % 2 === 0 ? "" : "lg:flex-row-reverse"
+          }`}
+        >
+          {/* Rotated Heading */}
+          <motion.h1
+            className="text-[4rem] md:w-[500px] md:text-center lg:text-[7rem] font-extrabold uppercase text-white rotate-90 origin-left lg:origin-center whitespace-nowrap lg:mr-12" // Added margin to the right
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            {/* Hover Effect Overlay */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-purple-500 z-0 opacity-0 rounded-2xl transition-opacity duration-300"
-              whileHover={{ opacity: 0.9 }}
+            {section.heading.split(" ").map((word, index) => (
+              <span key={index} className="block">
+                {word}
+              </span>
+            ))}
+          </motion.h1>
+
+          {/* Image and Description */}
+          <div className="flex-1 flex flex-col items-center lg:items-start gap-12">
+            {" "}
+            {/* Adjusted gap */}
+            <motion.img
+              src={section.image}
+              alt={section.heading}
+              className="rounded-xl shadow-lg w-full max-w-lg"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
             />
-
-            {/* Icon */}
-            <motion.div
-              className="z-10 bg-[#101010] w-16 h-16 rounded-full flex items-center justify-center text-white mb-6"
-              whileHover={{
-                backgroundColor: "#FFB100",
-                transition: { duration: 0.3 },
-              }}
-            >
-              <service.icon className="w-8 h-8" />
-            </motion.div>
-
-            {/* Title */}
-            <motion.h2
-              className="z-10 text-2xl font-bold text-[#101010] text-center mb-4"
-              whileHover={{
-                color: "#FFF",
-                transition: { duration: 0.3 },
-              }}
-            >
-              {service.title}
-            </motion.h2>
-
-            {/* Description */}
             <motion.p
-              className="z-10 text-gray-800 text-center"
-              whileHover={{
-                color: "#120E24",
-                transition: { duration: 0.3 },
-              }}
+              className="text-xl text-white text-center lg:text-left max-w-lg"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
             >
-              {service.description}
+              {section.description}
             </motion.p>
-          </motion.div>
-        ))}
-      </div>
+            {/* Related Services */}
+            <motion.ul
+              className="text-white text-2xl pl-6 space-y-4 relative"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2 }}
+            >
+              {section.related.map((item, i) => (
+                <li
+                  key={i}
+                  className="text-base flex items-center gap-4 relative"
+                >
+                  <span className="absolute left-[-30px] w-5 h-5 bg-white rounded-full flex items-center justify-center text-pink-300">
+                    {/* Replace this with your icon */}
+                    🌟
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </motion.ul>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
+
+// import React from "react";
+// import { motion } from "framer-motion";
+
+// const services = [
+//   {
+//     id: 1,
+//     title: "Web Design",
+//     description:
+//       "We create captivating and high-converting websites tailored to your business goals.",
+//     subServices: ["Responsive Design", "Custom Themes", "E-commerce Platforms"],
+//     image: "./img/webdes.jpg", // Replace with actual image paths
+//   },
+//   {
+//     id: 2,
+//     title: "SEO",
+//     description:
+//       "Optimize your site to rank higher on search engines and drive organic traffic.",
+//     subServices: ["Keyword Optimization", "Content Strategy", "Technical SEO"],
+//     image: "/path/to/image2.jpg",
+//   },
+//   // Add more services as needed
+// ];
+
+// export default function Services() {
+//   return (
+//     <div className="min-h-screen bg-black text-white px-6 py-12">
+//       {services.map((service, index) => (
+//         <div
+//           key={service.id}
+//           className={`flex flex-col md:flex-row ${
+//             index % 2 !== 0 ? "md:flex-row-reverse" : ""
+//           } items-center mb-16`}
+//         >
+//           {/* Rotated Title */}
+//           <motion.div
+//             className="relative md:w-1/2 w-full flex items-center justify-center"
+//             initial={{ opacity: 0 }}
+//             animate={{ opacity: 1 }}
+//             transition={{ duration: 1, delay: index * 0.3 }}
+//           >
+//             <h1 className="text-7xl md:text-[10rem] font-bold text-white uppercase transform -rotate-90 whitespace-nowrap">
+//               {service.title}
+//             </h1>
+//           </motion.div>
+
+//           {/* Content */}
+//           <div className="md:w-1/2 w-full flex flex-col items-start text-left space-y-6">
+//             {/* Image */}
+//             <motion.img
+//               src={service.image}
+//               alt={service.title}
+//               className="w-full max-w-md rounded-lg shadow-lg"
+//               initial={{ x: -100, opacity: 0 }}
+//               animate={{ x: 0, opacity: 1 }}
+//               transition={{ duration: 1 }}
+//             />
+//             {/* Description */}
+//             <p className="text-lg md:text-xl">{service.description}</p>
+
+//             {/* Sub-Services */}
+//             <div className="space-y-2">
+//               {service.subServices.map((sub, subIndex) => (
+//                 <motion.div
+//                   key={subIndex}
+//                   className="text-sm md:text-base bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-lg cursor-pointer transition-transform"
+//                   whileHover={{ x: 10 }}
+//                   transition={{ type: "spring", stiffness: 100 }}
+//                 >
+//                   {sub}
+//                 </motion.div>
+//               ))}
+//             </div>
+//           </div>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// }
